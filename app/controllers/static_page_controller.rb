@@ -3,7 +3,7 @@ class StaticPageController < ApplicationController
   require 'flickr'
 
   def home
-    flickr = Flickr.new "25172c034e9f433333fe269b09b261fd", "6b6bc778c232582c"
+    flickr = Flickr.new ENV['FLICKR_API_KEY'], ENV['FLICKR_SHARED_SECRET']
     if params[:user_id]
       begin
         @photos = flickr.people.getPublicPhotos(user_id: params[:user_id], api_key: ENV['FLICKR_API_KEY'])
