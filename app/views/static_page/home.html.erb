@@ -9,19 +9,34 @@
     </div>
   </section>
 
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-          <div class="card shadow-lg p-3 mb-5 bg-body rounded" style="width: 25rem;">
-            <!-- <div class="card-body">
-              
-            </div> -->
+  <% if @photos.size.zero? %>
+    <% @photos.each do |photo| %>
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+              <div class="card shadow-lg p-3 mb-5 bg-body rounded" style="width: 25rem;">
+                <%= link_to(image_tag(Flickr.url_q(photo)), Flickr.url_photopage(photo)) %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    <% end %>
+  <% else %>
+    <% @photos.each do |photo| %>
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+              <div class="card shadow-lg p-3 mb-5 bg-body rounded" style="width: 25rem;">
+                <%= link_to(image_tag(Flickr.url_q(photo)), Flickr.url_photopage(photo)) %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 
 </main>
