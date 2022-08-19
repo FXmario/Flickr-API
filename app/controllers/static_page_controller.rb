@@ -12,7 +12,7 @@ class StaticPageController < ApplicationController
         @photos = flickr.photos.getRecent(api_key: ENV['FLICKR_API_KEY'], per_page: 30)
       end
     else
-      @photos = flickr.photos.getRecent(api_key: ENV['FLICKR_API_KEY'], per_page: 48)
+      @photos = flickr.photos.getRecent(api_key: ENV['FLICKR_API_KEY'], per_page: 30)
     end
   end
 end
